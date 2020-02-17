@@ -354,9 +354,38 @@ int main()
 	return 0;
 }
 */
+/*给定一个仅包含大小写字母和空格 ' ' 的字符串 s，返回其最后一个单词的长度。
 
-int lengthOfLastWord(char * s) {
-	if (s == NULL)
+如果字符串从左向右滚动显示，那么最后一个单词就是最后出现的单词。
+
+如果不存在最后一个单词，请返回 0 。
+
+说明：一个单词是指仅由字母组成、不包含任何空格的 最大子字符串。
+
+*/
+int func(int a)
+{
+	int b;
+	switch (a)
+	{
+	case 1: b = 30;
+	case 2: b = 20;
+	case 3: b = 16;
+	default: b = 0;
+	}
+	return b;
+}
+
+int main()
+{
+	printf("%d ", func(1));
+	system("pause");
+	return 0;
+}
+
+
+/*int lengthOfLastWord(char * s) {
+	if (s == NULL || *s == ' ')
 		return 0;
 	int length = strlen(s);
 	for (int i = length - 1; i > 0; --i)
@@ -364,7 +393,7 @@ int lengthOfLastWord(char * s) {
 		if (s[i] == ' ')
 			return length - i - 1;
 	}
-	return length - 1;
+	return length;
 }
 int main()
 {
@@ -373,4 +402,4 @@ int main()
 	printf("%d ", ret);
 	system("pause");
 	return 0;
-}
+}*/
