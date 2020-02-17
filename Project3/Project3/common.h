@@ -8,4 +8,5 @@
 #include<assert.h>//╤оят
 #include<stdbool.h>
 #include<string.h>
+#include<math.h>
 
