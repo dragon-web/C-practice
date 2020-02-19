@@ -363,6 +363,7 @@ int main()
 说明：一个单词是指仅由字母组成、不包含任何空格的 最大子字符串。
 
 */
+/*
 int func(int a)
 {
 	int b;
@@ -382,7 +383,7 @@ int main()
 	system("pause");
 	return 0;
 }
-
+*/
 
 /*int lengthOfLastWord(char * s) {
 	if (s == NULL || *s == ' ')
@@ -403,3 +404,55 @@ int main()
 	system("pause");
 	return 0;
 }*/
+
+/*int main()
+{
+	int b[2][3] = { 0,1,2,3,4,5 };
+	int j = 1;
+	int i = 2;
+	b[i][j];
+	*(b[i] + j);
+	*(*b + i) + j;
+	(*(b + i))[j];
+
+
+
+
+	system("pause");
+	return 0;
+}
+*/
+
+int main()
+{
+	/*int n = 2;
+	n += n -= n * n;
+	printf("%d \n", n);
+	*/
+		/*char *p = "abcdefgh", *r;
+		long *q;
+		q = (long*)p;
+		q++;
+		r = (char*)q;
+		printf("%s\n", r);
+		
+	char str[] = "ABCD", *p = str;
+	printf("%d\n", *(p + 4));*/
+
+	/*printf("%x", 256);
+	char s[] = "abcdefgh", *p = s;
+	p += 3;
+	printf("%d\n", strlen
+	(strcpy(p, "ABCD")));
+	short i = 65537;
+	printf("%d\n", i);*/
+
+	int a[] = { 2, 4, 6, 8, 10 }, *p, **k;
+	p = a;
+	k = &p;
+	printf(" % d", *(p++));
+	printf(" % d\n", **k);
+
+	system("pause");
+	return 0;
+}
