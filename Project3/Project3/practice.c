@@ -354,15 +354,6 @@ int main()
 	return 0;
 }
 */
-/*给定一个仅包含大小写字母和空格 ' ' 的字符串 s，返回其最后一个单词的长度。
-
-如果字符串从左向右滚动显示，那么最后一个单词就是最后出现的单词。
-
-如果不存在最后一个单词，请返回 0 。
-
-说明：一个单词是指仅由字母组成、不包含任何空格的 最大子字符串。
-
-*/
 /*
 int func(int a)
 {
@@ -384,27 +375,6 @@ int main()
 	return 0;
 }
 */
-
-/*int lengthOfLastWord(char * s) {
-	if (s == NULL || *s == ' ')
-		return 0;
-	int length = strlen(s);
-	for (int i = length - 1; i > 0; --i)
-	{
-		if (s[i] == ' ')
-			return length - i - 1;
-	}
-	return length;
-}
-int main()
-{
-	char s[] = "Hello World as";
-	int ret = lengthOfLastWord(s);
-	printf("%d ", ret);
-	system("pause");
-	return 0;
-}*/
-
 /*int main()
 {
 	int b[2][3] = { 0,1,2,3,4,5 };
@@ -423,9 +393,9 @@ int main()
 }
 */
 
-int main()
+/*int main()
 {
-	/*int n = 2;
+	int n = 2;
 	n += n -= n * n;
 	printf("%d \n", n);
 	*/
@@ -445,14 +415,161 @@ int main()
 	printf("%d\n", strlen
 	(strcpy(p, "ABCD")));
 	short i = 65537;
-	printf("%d\n", i);*/
+	printf("%d\n", i);
 
 	int a[] = { 2, 4, 6, 8, 10 }, *p, **k;
 	p = a;
 	k = &p;
 	printf(" % d", *(p++));
 	printf(" % d\n", **k);
+	system("pause");
+	return 0;
+}*/
+/*给定一个仅包含大小写字母和空格 ' ' 的字符串 s，返回其最后一个单词的长度。
 
+如果字符串从左向右滚动显示，那么最后一个单词就是最后出现的单词。
+
+如果不存在最后一个单词，请返回 0 。
+
+说明：一个单词是指仅由字母组成、不包含任何空格的 最大子字符串。
+
+*/
+/*
+int lengthOfLastWord(char * s) {
+	if (s == NULL || *s == ' ')
+		return 0;
+	int length = strlen(s);
+	for (int i = length - 1; i > 0; --i)
+	{
+		if (s[i] == ' ')
+			return length - i - 1;
+	}
+	return length;
+}
+int main()
+{
+	char s[] = "a";
+	int ret = lengthOfLastWord(s);
+	printf("%d ", ret);
+	system("pause");
+	return 0;
+}*/
+/*给定两个有序整数数组 nums1 和 nums2，将 nums2 合并到 nums1 中，使得 num1 成为一个有序数组。
+说明:
+	初始化 nums1 和 nums2 的元素数量分别为 m 和 n。
+	你可以假设 nums1 有足够的空间（空间大小大于或等于 m + n）来保存 nums2 中的元素。
+输入:
+nums1 = [1,2,3,0,0,0], m = 3
+nums2 = [2,5,6],       n = 3
+
+输出: [1,2,2,3,5,6]
+*/
+
+
+/*void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n) {
+	int i = 0;
+	int j = 0;
+	while (i<m && j<n)
+	{
+		if (nums1[i] < nums2[j])
+			i++;
+		else
+		{
+			int temp = i;
+			for (int z = m - 1; z >= i; z--)
+			{
+				nums1[z + 1] = nums1[z];
+			}
+			nums2[j] = nums1[temp];
+			j++;
+		}
+	}
+	while(j <= n-1)
+	{
+		nums1[i + j + 1] = nums2[j];
+		j++;
+	}
+}
+int main()
+{
+	int arr1[] = { 1,3,80 };
+	int arr2[] = { 2,8,9};
+	merge(arr1, 3, 3, arr2, 3, 3);
+	system("pause");
+	return 0;
+}
+void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n){
+	for(int i=0;i<n;i++){
+int j=m-1;
+for(;j>=0;j--){
+if(nums2[i]<nums1[j]){
+nums1[j+1]=nums1[j];
+}else{
+				break;
+			}
+}
+nums1[j+1]=nums2[i];
+m++;
+}
+}
+*/
+
+/*bool containsDuplicate(int* nums, int numsSize) {
+	int count = 0;
+	int i = 0;
+	while (i < numsSize)
+	{
+		for (int j = i + 1; j < numsSize; j++)
+		{
+			if (nums[i] == nums[j])
+				count++;
+		}
+		i++;
+	}
+	if (count != 0)
+		return true;
+	return false;
+
+}
+
+int main()
+{
+	int arr[] = { 1,5,9,3,6 };
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	printf("%d ", containsDuplicate(arr,sz));
+
+
+	system("pause");
+	return 0;
+}
+*/
+bool isLongPressedName(char * name, char * typed) {
+	char* p1 = name;
+	char* p2 = typed;
+	while (*p1 != '\0')
+	{
+		if (*p1 == *p2)
+		{
+			p1++;
+			p2++;
+		}
+		else
+		{
+			if (*p2 == '\0')
+			return false;
+			p2++;
+			if (*p2 == '\0')
+				return false;
+		}
+	}
+	return true;
+}
+
+int main()
+{
+	char name[] = "pyplrz";
+	char typed[] = "ppyypllr";
+	printf("%d \n", isLongPressedName(name, typed));
 	system("pause");
 	return 0;
 }
