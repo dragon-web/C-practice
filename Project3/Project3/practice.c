@@ -543,7 +543,7 @@ int main()
 	return 0;
 }
 */
-bool isLongPressedName(char * name, char * typed) {
+/*bool isLongPressedName(char * name, char * typed) {
 	char* p1 = name;
 	char* p2 = typed;
 	while (*p1 != '\0')
@@ -570,6 +570,155 @@ int main()
 	char name[] = "pyplrz";
 	char typed[] = "ppyypllr";
 	printf("%d \n", isLongPressedName(name, typed));
+	system("pause");
+	return 0;
+}
+*/
+//仅仅反转字母
+/*char * reverseOnlyLetters(char * S) {
+	char* p = S;
+	int length = strlen(S) - 1;
+	while (*p != S[length])
+	{
+		char temp;
+		if (*p != '-'&&S[length] != '-')
+		{
+			temp = *p;
+			*p = S[length];
+			S[length] = temp;
+			length--;
+			p++;
+		}
+		else
+		{
+			if (*p == '-')
+			{
+				p++;
+			}
+			else if (S[length] == '-')
+			{
+				length--;
+			}
+		}
+	}
+	return S;
+}
+int main()
+{
+	char arr[] = "a - bC - dEf - ghIj";
+	char *q = reverseOnlyLetters(arr);
+	printf("%s", q);
+	system("pause");
+	return 0;
+}*/
+//不是字母的字符不反转
+/*char * reverseOnlyLetters(char * S) {
+	char* p = S;
+	int length = strlen(S)-1;
+	while (p <(S+length))
+	{
+		char temp;
+		if (((*p <= 'Z'&&*p >= 'A') || (*p >= 'a'&&*p <='z'))&&((S[length]<= 'Z'&&S[length]>='A')||( S[length] >= 'a'&&S[length] <= 'z')))
+		{	temp = *p;
+			*p = S[length];
+			S[length] = temp;
+			length--;
+			p++;
+		}
+		else
+		{
+			if (*p < 'A'||(*p > 'Z'&&*p<'a')||*p >'z')
+			{
+				p++;
+			}
+			else if (S[length] < 'A' || (S[length] > 'Z'&&S[length] < 'a') || S[length] >'z')
+			{
+				length--;
+			}
+		}
+	}
+	return S;
+}
+int main()
+{
+	//char arr[] = "a - bC - dEf - ghIj";
+	char arr[] = "abcd";
+	char *q = reverseOnlyLetters(arr);
+	printf("%s", q);
+	system("pause");
+	return 0;
+}
+*/
+
+/*char * addBinary(char * a, char * b) {
+	int length, length1 = strlen(a), length2 = strlen(b), sum = 0, i = length1 - 1, j = length2 - 1, k, num;
+	if (length1 > length2)
+		length = length1 + 1;
+	else
+		length = length2 + 1;
+	char *c = (char *)malloc(sizeof(char)*(length + 1));
+	c[0] = '0'; c[length] = '\0';
+	k = length - 1;
+	while (i > -1 || j > -1 || sum)
+	{
+		num = (i > -1 ? a[i] - '0' : 0) + (j > -1 ? b[j] - '0' : 0) + sum;
+		sum = 0;
+		if (num > 1)
+		{
+			sum = 1;
+			num -= 2;
+		}
+		c[k--] = num + '0';
+		j--; i--;
+	}
+	if (c[0] == '0')
+	{
+		for (i = 0; i < length - 1; i++)
+			c[i] = c[i + 1];
+		c[length - 1] = '\0';
+	}
+	return c;
+}*/
+
+/*给定两个二进制字符串，返回他们的和（用二进制表示）。
+
+输入为非空字符串且只包含数字 1 和 0。*/
+
+char * addBinary(char * a, char * b) {
+	int length, length1 = strlen(a), length2 = strlen(b), sum = 0, i = length1 - 1, j = length2 - 1, k, num;
+	if (length1 > length2)
+		length = length1 + 1;
+	else
+		length = length2 + 1;
+	char *c = (char *)malloc(sizeof(char)*(length + 1));
+	c[0] = '0'; c[length] = '\0';
+	k = length - 1;
+	while (i > -1 || j > -1 || sum)
+	{
+		num = (i > -1 ? a[i] - '0' : 0) + (j > -1 ? b[j] - '0' : 0) + sum;
+		sum = 0;
+		if (num > 1)
+		{
+			sum = 1;
+			num -= 2;
+		}
+		c[k--] = num + '0';
+		j--; i--;
+	}
+	if (c[0] == '0')
+	{
+		for (i = 0; i < length - 1; i++)
+			c[i] = c[i + 1];
+		c[length - 1] = '\0';
+	}
+	return c;
+}
+int main()
+{
+	char arr1 = "10110101";
+	char arr2 = "10110101";
+	char* p = addBinary(arr1, arr2);
+	printf("%s",p);
 	system("pause");
 	return 0;
 }
