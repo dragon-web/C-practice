@@ -38,6 +38,7 @@ int main()
 	//函数指针的应用
 	int(*p)(int, int) = &Add;
 	printf("%d  \n", (*p)(2, 6));
+	printf("%d  \n", p(2, 6));
 
 	system("pause");
 	return 0;
