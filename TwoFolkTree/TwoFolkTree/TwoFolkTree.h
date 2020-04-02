@@ -96,17 +96,114 @@ void _PreOrder(BinTreeNode *t)
 		_PreOrder(t->RightChild);
 	}
 }
-
-stack <BinTreeNode*> s;
-void PreOrder(BinTree *tss
+//采用栈的形式做非递归遍历
+void PreOrder(BinTree * t)
 {
-
-
-
-}
+	_PreOrderNoR(t->root);
+}  
 void _PreOrderNoR(BinTreeNode *t)
 {
+	stack <BinTreeNode*> s;
+	BinTreeNode* p;
+	if (t != NULL)
+	{
+		s.push(t);
+		while (!s.empty())
+		{
+			p = s.top();
+			s.pop();
+			printf("%c ", p->data);
+			if (p->RightChild != NULL)//为啥是这个顺序呢？后进栈的在栈顶
+			{
+				s.push(p->RightChild);
+			}
+			if (p->LeftChild != NULL)
+			{
+				s.push(p->LeftChild);
+			}
+		}
+	}
+}
+//中序遍历
+//递归形式
+void InOrder(BinTree *t)
+{
+	_InOrder(t->root);
+}
+void _InOrder(BinTreeNode *t)
+{
+	if (t != NULL)
+	{
+		_InOrder(t->LeftChild);
+		printf("%c ", t->data);
+		_InOrder(t->RightChild);
+	}
+}
+void _InOrderNoR(BinTreeNode *t)
+{
+	BinTreeNode* p;
+	stack<BinTreeNode*>dp;
+	do
+	{
+		while (t != NULL)
+		{
+			dp.push(t);
+			t = t->LeftChild;
+		}
+		p = dp.top();
+		dp.pop();
+		printf("%c ", p->data);
+		if (p->RightChild != NULL)
+			t = p->RightChild;
+	} while (!dp.empty() || t != NULL);
 
+}
+void InOrderNoR(BinTree *t)
+{
+	_InOrderNoR(t->root);
+}
 
+void _PostOrderNoR(BinTreeNode *t)
+{
+	if (t != NULL)
+	{
+		BinTreeNode*p, *prev = NULL;
+		stack<BinTreeNode*> dq;
+		do
+		{
+			while (t != NULL)
+			{
+				dq.push(t);
+				t = t->LeftChild;
+			}
+			p = dq.top;
+			if (p->RightChild == NULL || p->RightChild == prev)
+			{
+				dq.pop();
+				printf("%c ", p->data);
+				prev = p;
+			}
+			else {
+				t = p->RightChild;
+			}
+		} while (!dq.empty());
+	}
+}
+void PostOrderNoR(BinTree *t)
+{
+	_PostOrderNoR(t->root);
+}
 
+void PostOrder(BinTree *t)
+{
+	_PostOrder(t->root);
+}
+void _PostOrder(BinTreeNode *t)
+{
+	if (t != NULL)
+	{
+		_PostOrder(t->LeftChild);
+		_PostOrder(t->RightChild);
+		printf("%c ", t->data);
+	}
 }
