@@ -1,0 +1,10 @@
+#pragma once
+#define _CRT_SECURE_NO_WARNINGS 
+#define datatype int
+
+#include<stdio.h>
+#include<Windows.h>
+#include<stdlib.h>
+#include<assert.h>//╤оят
+#include<stdbool.h>
+#include<string.h>
