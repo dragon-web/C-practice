@@ -169,9 +169,9 @@ void _HeapAdjustDown(int *ar, int left, int right, int start)
 }
 void HeapSort(int * ar,int left, int right)
 {
-	int n = right - left- 1;
+	int n = right - left+ 1;
 	int cur = n / 2 - 1 + left; //+left
-	while (cur)
+	while (cur>=0)
 	{
 		_HeapAdjustDown(ar, left, right, cur);
 		cur--;

@@ -4,8 +4,8 @@ int main()
 {
 		int ar[] = { 27,15,19,89,85,1,4,85,6,8,9,12};
 		int n = sizeof(ar) / sizeof(int);
-		HeapSort(ar, 0, n);
-		for (int i = 0; i < n; ++i)
+		HeapSort(ar, 0, n-1);
+		for (int i = 0; i < n-1; ++i)
 		{
 			printf("%d ", ar[i]);
 		}
